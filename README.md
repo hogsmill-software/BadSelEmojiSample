@@ -1,0 +1,2 @@
+# BadSelEmojiSample
+ Bad emoji selected
