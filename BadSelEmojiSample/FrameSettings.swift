@@ -80,6 +80,8 @@ struct FrameSettings: View {
                         .padding(.bottom, 3)
                         .opacity(emojiOpacity)
                     }
+                // Line below is important. Without it, if you press "< Back" and return to this screen, selection appears to be lost (but previously selected item shows in pop up)
+                .onAppear(perform: {selectedEmoji = modelData.selectedEmoji})
                 .popover(isPresented: $emojiListPopOver,
                         attachmentAnchor: .point(.bottom),
                         arrowEdge: .bottom) {
@@ -124,6 +126,8 @@ struct FrameSettings: View {
                         .padding(.bottom, 3)
                         .foregroundColor(symbolCtrlBorderColor)
                     }
+                // Line below is important. Without it, if you press "< Back" and return to this screen, selection appears to be lost (but previously selected item shows in pop up)
+                .onAppear(perform: { selectedSymbol = modelData.selectedSymbol })
                 .popover(isPresented: $symbolListPopOver,
                         attachmentAnchor: .point(.bottom),
                         arrowEdge: .bottom) {
